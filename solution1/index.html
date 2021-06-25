@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      table {
+        width: 100%;
+        margin-top: 32px;
+      }
+
+      thead th {
+        cursor: pointer;
+      }
+
+      td {
+          text-align: center;
+          padding: 5px;
+      }
+      input {
+        border: 1px solid #80808082;
+        padding: 10px;
+        margin: 10px;
+        border-radius: 4px;
+        width: 100%;
+      }
+
+      .filter-section {
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .filter-section input {
+        width: calc(30% - 30px);
+      }
+    </style>
+</head>
+<body>
+    <section id="result">
+      <div class="filter-section">
+        <input placeholder="ID" oninput="filterColumn('id', event.target.value)">
+        <input placeholder="First Name" oninput="filterColumn('firstName', event.target.value)">
+        <input placeholder="Last Name" oninput="filterColumn('lastName', event.target.value)">
+      </div>
+
+        <table>
+          <thead>
+            <th onclick="sortColumn('id')">Id</h>
+            <th onclick="sortColumn('firstName')">First Name</h>
+            <th onclick="sortColumn('lastName')">Last Name</h>
+            <th>Active</h>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
