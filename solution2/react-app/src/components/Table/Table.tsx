@@ -51,6 +51,13 @@ const getColumnSearchProps = (dataIndex: string) => ({
 
 export const Table = ({ data, columns }: TableProps) => {
 
+    const rowData = useMemo(() => {
+        return data.map((el, ind) => ({
+            ...el,
+            key: el.id || ind
+        }))
+    }, [data])
+
     const tableColumns = useMemo(() => {
         return columns.map(el => {
             if (el.filter) {
@@ -70,6 +77,6 @@ export const Table = ({ data, columns }: TableProps) => {
         })
     }, [columns]);
 
-      return <AntdTable columns={tableColumns as any} dataSource={data} />;
+      return <AntdTable columns={tableColumns as any} dataSource={rowData} />;
 
 }
