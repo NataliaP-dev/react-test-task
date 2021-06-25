@@ -6,6 +6,7 @@ import { Affrair, Council, Councillor } from '../../models';
 import { affrairsColumns, councilColumns, councillorsColumns } from './constants';
 import { getAllAffrairs, getAllCouncillors, getAllCouncils } from '../../state/selectors';
 import { getAffrairsRequest, getCouncillorsRequest, getCouncilRequest } from '../../state/actions';
+import css from './Entries.module.scss';
 
 const { TabPane } = Tabs;
 
@@ -23,17 +24,19 @@ export const Entries = () => {
     }, []);
 
     return (
-        <Tabs defaultActiveKey="1">
-            <TabPane tab="Councillors" key="1">
-                <Table columns={councillorsColumns} data={councillors} />
-            </TabPane>
-            <TabPane tab="Councils" key="2">
-                <Table columns={councilColumns} data={councils} />
-            </TabPane>
-            <TabPane tab="Affrairs" key="3">
-                <Table columns={affrairsColumns} data={affrairs} />
-            </TabPane>
-        </Tabs>
+        <section className={css.wrapper}>
+            <Tabs defaultActiveKey="1">
+                <TabPane tab="Councillors" key="1">
+                    <Table columns={councillorsColumns} data={councillors} />
+                </TabPane>
+                <TabPane tab="Councils" key="2">
+                    <Table columns={councilColumns} data={councils} />
+                </TabPane>
+                <TabPane tab="Affrairs" key="3">
+                    <Table columns={affrairsColumns} data={affrairs} />
+                </TabPane>
+            </Tabs>
+        </section>
     )
 };
 
