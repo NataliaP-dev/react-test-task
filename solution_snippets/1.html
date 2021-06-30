@@ -1,0 +1,27 @@
+<html>
+    <head></head>
+    <body>
+        <ul id="todo-app">
+            <li class="item">Walk the dog</li>
+            <li class="item">Pay bills</li>
+            <li class="item">Make dinner</li>
+            <li class="item">Code for one hour</li>
+        </ul>
+
+        <script type="text/javascript">
+            function onItemClickHandler (e) {
+                alert('you clicked on item: ' + e.target.innerHTML);
+            }
+            
+            document.addEventListener('DOMContentLoaded', function () {
+
+                const app = document.getElementById('todo-app');
+                const items = app.getElementsByClassName('item');
+
+                for (const item of items) {
+                    item.addEventListener('click', onItemClickHandler);
+                }
+            });
+        </script>
+    </body>
+</html>
