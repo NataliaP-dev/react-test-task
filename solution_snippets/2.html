@@ -1,0 +1,26 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <script type="text/javascript">
+        let interval = null;
+
+            document.addEventListener('mousemove', function () {
+                if (interval) {
+                    clearInterval(interval);
+                    interval = null;
+                }
+                let i = 0;
+                interval = setInterval(() => {
+                    // simulation of non critical taxing task
+                    i++;
+
+                    if (i>= 9999) {
+                        clearInterval(interval);
+                        interval = null;
+                    }
+                }, 0);
+            });
+        </script>
+    </body>
+</html>
